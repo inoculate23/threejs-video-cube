@@ -52,14 +52,14 @@ var texture = new THREE.Texture(video);
 texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
 texture.repeat.set( 1, 1 );
-const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF-instancing/' );
-						loader.load( 'DamagedHelmetGpuInstancing.gltf', function ( gltf ) {
+const loader = new GLTFLoader().setPath( './textures/' );
+						loader.load( 'ballerfox.glb', function ( gltf ) {
 
 							scene.add( gltf.scene );
-var geometry = new THREE.BoxGeometry(3,3,3);
+var geometry = gltf.scene;
 var material = new THREE.MeshLambertMaterial( { map: texture, shading: THREE.FlatShading } );
-var cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+var object = new THREE.Mesh( geometry, material );
+scene.add( object );
 camera.position.z = 5;
 
 var light = new THREE.AmbientLight( 'rgb(255,255,255)' ); // soft white light
@@ -94,4 +94,6 @@ function render() {
 
 render();
 
-}
+
+            }
+          }
