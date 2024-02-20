@@ -14,11 +14,18 @@
   </head>
 
   <body>
-    
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@<version>/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
+    }
+  }
+</script>
   <script src="scripts/three.min.js"></script>  
   <script type="module">
     //main block for doing the audio recording
-import * as THREE from 'three'
+import * as THREE from '//unpkg.com/three@<version>/build/three.module.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import Stats from 'three/examples/jsm/libs/stats.module'
