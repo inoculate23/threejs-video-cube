@@ -114,9 +114,9 @@ function threeRender(video) {
 
 // load a texture, set wrap mode to repeat
 var texture = new THREE.Texture(video);
-texture.wrapS = THREE.RepeatWrapping;
-texture.wrapT = THREE.RepeatWrapping;
-texture.repeat.set( 1, 1 );
+//texture.wrapS = THREE.RepeatWrapping;
+//texture.wrapT = THREE.RepeatWrapping;
+//texture.repeat.set( 1, 1 );
 const loader = new GLTFLoader()
 loader.load(
     'textures/ballerfox.glb',
@@ -135,11 +135,11 @@ loader.load(
            //   l.shadow.mapSize.height = 2048
            // }
       // })
-        scene.add(gltf.scene)
+      
       var geometry = gltf.scene;
 var material = new THREE.MeshLambertMaterial( { map: texture, shading: THREE.FlatShading } );
 var object = new THREE.Mesh( geometry, material );
-scene.add( object );
+scene.add( object, gltf.scene );
 camera.position.z = 5;
 
 var light = new THREE.AmbientLight( 'rgb(255,255,255)' ); // soft white light
