@@ -1,5 +1,5 @@
 //main block for doing the audio recording
-import { GLTFLoader } from "https://unpkg.com/browse/three@0.161.0/examples/jsm/loaders/GLTFLoader.js"
+import { GLTFLoader } from "./scripts/GLTFLoader.js"
 if (navigator.mediaDevices.getUserMedia) {
    console.log('getUserMedia supported.');
    navigator.mediaDevices.getUserMedia (
