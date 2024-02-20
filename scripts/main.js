@@ -52,7 +52,10 @@ var texture = new THREE.Texture(video);
 texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
 texture.repeat.set( 1, 1 );
+const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF-instancing/' );
+						loader.load( 'DamagedHelmetGpuInstancing.gltf', function ( gltf ) {
 
+							scene.add( gltf.scene );
 var geometry = new THREE.BoxGeometry(3,3,3);
 var material = new THREE.MeshLambertMaterial( { map: texture, shading: THREE.FlatShading } );
 var cube = new THREE.Mesh( geometry, material );
