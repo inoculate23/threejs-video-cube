@@ -27,11 +27,11 @@
     //main block for doing the audio recording
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import { GLTFLoader } from 'xthree/addons/loaders/GLTFLoader'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader'
 import Stats from 'three/addons/libs/stats.module'
 
 const scene = new THREE.Scene()
-scene.add(new THREE.AxesHelper(5))
+
 
 const light = new THREE.SpotLight(0xffffff, Math.PI * 20)
 light.position.set(5, 5, 5)
