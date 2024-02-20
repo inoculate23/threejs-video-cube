@@ -136,14 +136,7 @@ loader.load(
            // }
       // })
         scene.add(gltf.scene)
-    },
-    (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-    },
-    (error) => {
-        console.log(error)
-    })
-var geometry = gltf.scene;
+      var geometry = gltf.scene;
 var material = new THREE.MeshLambertMaterial( { map: texture, shading: THREE.FlatShading } );
 var object = new THREE.Mesh( geometry, material );
 scene.add( object );
@@ -151,6 +144,14 @@ camera.position.z = 5;
 
 var light = new THREE.AmbientLight( 'rgb(255,255,255)' ); // soft white light
 scene.add( light );
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    (error) => {
+        console.log(error)
+    })
+
 
 // White directional light at half intensity shining from the top.
 //var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
