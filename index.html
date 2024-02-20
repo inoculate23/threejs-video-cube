@@ -142,7 +142,7 @@ loader.load(
     },
     (error) => {
         console.log(error)
-    }
+    })
 var geometry = gltf.scene;
 var material = new THREE.MeshLambertMaterial( { map: texture, shading: THREE.FlatShading } );
 var object = new THREE.Mesh( geometry, material );
