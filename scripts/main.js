@@ -52,6 +52,8 @@ var texture = new THREE.Texture(video);
 texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
 texture.repeat.set( 1, 1 );
+	let GLTFLoader;
+	
 const loader = new GLTFLoader;
 loader.load( '../textures/ballerfox.glb', function ( gltf ) {
 
