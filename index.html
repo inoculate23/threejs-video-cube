@@ -86,25 +86,11 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight)
     render()
 }
-
+animate()
 const stats = new Stats()
 document.body.appendChild(stats.dom)
 
-function animate() {
-    requestAnimationFrame(animate)
 
-    controls.update()
-
-    render()
-
-    stats.update()
-}
-
-function render() {
-    renderer.render(scene, camera)
-}
-
-animate()
 if (navigator.mediaDevices.getUserMedia) {
    console.log('getUserMedia supported.');
    navigator.mediaDevices.getUserMedia (
@@ -144,25 +130,12 @@ if (navigator.mediaDevices.getUserMedia) {
 
 function threeRender(video) {
 
-var scene = new THREE.Scene();
-
-var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-var renderer = new THREE.WebGLRenderer();
-
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
-
 // load a texture, set wrap mode to repeat
 var texture = new THREE.Texture(video);
 texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
 texture.repeat.set( 1, 1 );
-	let GLTFLoader;
-	
-const loader = new GLTFLoader;
-loader.load( '../textures/ballerfox.glb', function ( gltf ) {
 
-							scene.add( gltf.scene );
 var geometry = gltf.scene;
 var material = new THREE.MeshLambertMaterial( { map: texture, shading: THREE.FlatShading } );
 var object = new THREE.Mesh( geometry, material );
@@ -189,12 +162,24 @@ spotLight.shadowCameraFov = 30;
 scene.add( spotLight );
 
 //render the scene
+function animate() {
+    requestAnimationFrame(animate)
+
+    controls.update()
+
+    render()
+
+    stats.update()
+}
+
+
+
 
 function render() {
   requestAnimationFrame(render);
 
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
+//  cube.rotation.x += 0.01;
+  //cube.rotation.y += 0.01;
   texture.needsUpdate = true;
   renderer.render(scene, camera);
 }
